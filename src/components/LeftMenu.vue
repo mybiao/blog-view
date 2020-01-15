@@ -11,7 +11,7 @@
           <router-link :to="{name:menus[0].pathname,query:{cur:1}}" @click.native="activeFunc(0)">{{menus[0].name}}</router-link>
         </li>
         <li>
-          <a href="javascript:void(0)">{{menus[1].name}}</a>
+          <router-link :to="{name:menus[1].pathname,query:{cur:1}}" @click.native="activeFunc(1)">{{menus[1].name}}</router-link>
         </li>
       </ul>
       
@@ -29,7 +29,7 @@ export default {
     return {
       menus: [
         { name: "文章列表", pathname: "home",active:false },
-        { name: "标  签", pathname:"tag" ,active:false},
+        { name: "分  类", pathname: "categories" ,active:false},
       ],
      
     };

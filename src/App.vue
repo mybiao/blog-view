@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="lc">
+    <div id="lc" ref="leftbody">
       <leftmenu></leftmenu>
     </div>
     <div id="rbody">

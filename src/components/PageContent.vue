@@ -12,7 +12,7 @@
             </span>
           </div>
       </div>
-      <div class="pagebody" v-html="pageText" v-highlight>
+      <div class="pagebody" ref="pagebody" v-html="pageText" v-highlight>
           
       </div>
       <div class="pagebottom">
@@ -33,7 +33,9 @@ export default {
             pageText:"",
             pid:this.$route.params.pageId,
             page:{},
-
+            student:{
+                id:132454,
+            }
         }
     },
     created:function(){

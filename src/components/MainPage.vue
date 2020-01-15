@@ -13,13 +13,14 @@
       class="page"
       ></pageEle>
     <div class="pagec">
-    <!-- 分页 -->
-    <pagebounds 
-    :cur="cur"
-    :pageSize="pageSize"
-    :size="size"
-    :count="count"
-    ></pagebounds>
+    <el-pagination background
+     layout="prev, pager, next, total"
+     :total="count"
+     :page-size="size"
+     :current-page="cur"
+     @current-change="pageClick"
+     @prev-click="this.cur++;pageClick"
+    ></el-pagination>
     </div>
     </div>
     <!-- 页脚 -->
@@ -33,7 +34,6 @@
 <script>
 
 import pageEle from './PageEle'
-import pagebounds from './PageBounds'
 import bus from './../bus'
 
 export default {
@@ -64,6 +64,11 @@ export default {
         bus.$emit("pagecount",body.Count);
       });
     },
+    pageClick:function(cur){
+      this.cur = cur;
+      //点击分页后跳转路由
+      this.$router.push({path:this.$route.path,query:{cur:this.cur}})
+    },
     getTagDetail:function(cur){
       this.$axios({
         method:"get",
@@ -80,13 +85,15 @@ export default {
   },
   components:{
     pageEle,
-    pagebounds,
   },
   created:function(){
     if(this.$route.name==="home"){
+      this.cur = parseInt(this.$route.query.cur);
+      if(isNaN(this.cur)) this.cur = 1;
       this.getPage(this.cur);
     }else if(this.$route.name==="tag"){
-      this.cur = 1;
+      this.cur = parseInt(this.$route.query.cur);
+      if(isNaN(this.cur)) this.cur = 1;
       this.tagName = this.$route.params.tagName;
       this.getTagDetail(this.cur)
     }
