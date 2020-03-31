@@ -1,4 +1,4 @@
-// module.exports = {
+module.exports = {
 //     devServer: {
 //         open: true,
 //         port: 8090,
@@ -14,4 +14,15 @@
             
     //     }
     // }
-// }
+    configureWebpack:{
+        externals:{
+            'vue':'Vue',
+            'vue-router':'VueRouter',
+            'axios':'axios',
+            'highlight.js':'hljs',
+            'marked':'marked',
+            'nprogress':'NProgress',
+            'element-ui':'ELEMENT'
+        }
+    }
+}

@@ -5,16 +5,17 @@ import router from './../router'
 import axios from 'axios'
 import hljs from 'highlight.js'
 import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import{
+// import 'nprogress/nprogress.css'
+// import{
   // Message,
-  Pagination,
-}
-from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+  // Pagination,
+// }
+// from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css';
 
 // Vue.use(Message);
-Vue.use(Pagination);
+import ElementUI from 'element-ui'
+Vue.use(ElementUI);
 
 Vue.use(VueRouter);
 Vue.config.productionTip = true;
